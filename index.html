@@ -1,23 +1,35 @@
 ---
 layout: default
 ---
+<!-- Banner -->
+<section id="banner">
+  <article>
+    <img src="{{ site.url }}/images/slide01.jpg" alt="" />
+    <div class="inner">
+      <h2>Compare prices. Quality Lawyers</h2>
+    </div>
+  </article>
+</section>
 
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+<!-- Two -->
+      <section id="two" class="wrapper content-pad">
+        <div class="inner">
+          <div class="features">
+            <section class="content">
+              <span class="icon-wrapper major"><span class="icon fa-pencil"></span></span>
+              <h3>Compare prices and specialties.</h3>
+              <p>We give you the information you want. You can make an informed choice knowing the experience and price for lawyers near you.</p>
+            </section>
+            <section class="content">
+              <span class="icon-wrapper major"><span class="icon fa-paper-plane"></span></span>
+              <h3>Only quality lawyers.</h3>
+              <p>We post lawyers you can trust. Only lawyers that are recommended by more than 90% of their clients can participate in ShopLaw. </p>
+            </section>
+            <section class="content">
+              <span class="icon-wrapper major"><span class="icon fa-cloud"></span></span>
+              <h3>100% Confidential</h3>
+              <p>Duis vulputate sit amet metus quis facilisis. Sed dapibus neque erat fringilla tincidunt. Nullam sapien et sapien.</p>
+            </section>
+          </div>
+        </div>
+      </section>

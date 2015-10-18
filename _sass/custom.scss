@@ -1,0 +1,22 @@
+.page-description {
+	font-size: 25px;
+	line-height: 35px;
+}
+
+.blue-button {
+	background-color: rgb(36, 101, 219);
+	color: white !important;
+	border: none !important;
+	box-shadow: none;
+	border-radius: 3px;
+
+	&:hover {
+		background-color: rgb(36, 101, 219);
+		color: white;
+	}
+}
+
+.narrow-page {
+	max-width: 800px;
+	margin: auto;
+}

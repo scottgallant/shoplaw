@@ -3,50 +3,81 @@
 ---
 @charset "utf-8";
 
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/skel';
+@import 'font-awesome.min.scss';
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600|Raleway:500,700,800');
 
+@include skel-breakpoints((
+	xlarge: '(max-width: 1680px)',
+	large: '(max-width: 1280px)',
+	medium: '(max-width: 980px)',
+	small: '(max-width: 736px)',
+	xsmall: '(max-width: 480px)'
+));
 
-// Our variables
-$base-font-family: Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+@include skel-layout((
+	reset: 'full',
+	boxModel: 'border',
+	containers: 80em,
+	grid: ( gutters: 2em ),
+	breakpoints: (
+		large: (
+			containers: 65em,
+			grid: ( gutters: 1.5em )
+		),
+		medium: (
+			containers: 90%
+		),
+		small: (
+			small: (90%, true),
+			grid: ( gutters: 1.25em )
+		)
+	)
+));
 
-$spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-// Width of the content area
-$content-width:    800px;
-
-$on-palm:          600px;
-$on-laptop:        800px;
-
-
-
-// Using media queries with like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+@mixin color($p) {
+	@include color-typography($p);
+	@include color-box($p);
+	@include color-button($p);
+	@include color-features($p);
+	@include color-form($p);
+	@include color-icon($p);
+	@include color-list($p);
+	@include color-post($p);
+	@include color-section($p);
+	@include color-table($p);
 }
 
+// Base.
 
+@import 'base/page';
+@import 'base/typography';
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+// Component.
+
+@import 'components/box';
+@import 'components/button';
+@import 'components/features';
+@import 'components/form';
+@import 'components/icon';
+@import 'components/image';
+@import 'components/list';
+@import 'components/post';
+@import 'components/posts';
+@import 'components/section';
+@import 'components/spotlight';
+@import 'components/table';
+@import 'components/wrapper';
+
+// Layout.
+
+@import 'layout/header';
+@import 'layout/banner';
+@import 'layout/main';
+@import 'layout/footer';
+@import 'layout/navPanel';
+@import 'custom';
