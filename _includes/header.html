@@ -1,14 +1,16 @@
 <!-- Header -->
-<header id="header">
-  <h1><a href="/">{{ site.title }}</a></h1>
+<header id="header" {% if page.url == "/index.html" %}class="alt"{% endif %}>
+  <h1><a href="home">{{ site.title }}</a></h1>
   <nav id="nav">
     <ul>
-    <!-- partial "nav-main.html" -->
-    {% for page in site.pages %}
-      {% if page.title %}
-      <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
-      {% endif %}
-    {% endfor %}
+      {% assign pages = site.pages | sort: 'weight' %}
+      {% for p in pages %}
+        {% if p.menu == 'main' %}
+          <li{% if p.url == page.url %} class="active"{% endif %}>
+             <a href="{% if p.url == "/index.html" %}/{% else %}{{ site.baseurl }}{{ p.url }}{% endif %}">{{ p.title }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
     </ul>
   </nav>
 </header>
